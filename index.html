@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="glass-nav">
+      <div class="logo">RAHA</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle">🌙</button>
+      <div class="hamburger">☰</div>
+    </nav>
+
+    <section id="home" class="hero">
+      <canvas id="particle-bg"></canvas>
+      <div class="hero-content">
+        <h1 class="glow-text">Rashedul Islam</h1>
+        <h2 class="text-gradient">Web Designer & Developer</h2>
+        <p class="hero-desc">
+          I’m a passionate Web Designer & Frontend Developer based in
+          Bangladesh.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">View Work</a>
+          <a href="#contact" class="btn-secondary">Contact Me</a>
+        </div>
+      </div>
+      <div class="scroll-indicator"></div>
+    </section>
+
+    <section id="about" class="about animate-on-scroll">
+      <div class="tech-logos" id="techLogos"></div>
+      <div class="about-container">
+        <div class="profile-img">
+          <div class="img-border"></div>
+          <img src="img/Rashed.jpg" alt="Profile Image" />
+        </div>
+        <div class="about-content">
+          <h2 class="section-title">About Me</h2>
+          <p>
+            Hi, I'm Rashedul Islam — a passionate Web Designer & Frontend
+            Developer based in Bangladesh. I specialize in crafting responsive,
+            modern, and user-friendly websites using HTML, CSS, and JavaScript.
+            With a strong eye for design and a deep focus on functionality, I
+            transform creative ideas into digital experiences that work
+            beautifully on every screen.
+          </p>
+
+          <div class="skills-badges">
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+              target="_blank"
+              class="skill-badge"
+            >
+              <i class="fab fa-html5"></i> HTML5
+            </a>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+              target="_blank"
+              class="skill-badge"
+            >
+              <i class="fab fa-css3-alt"></i> CSS3
+            </a>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              target="_blank"
+              class="skill-badge"
+            >
+              <i class="fab fa-js"></i> JavaScript
+            </a>
+            <a
+              href="https://reactjs.org/docs/getting-started.html"
+              target="_blank"
+              class="skill-badge"
+            >
+              <i class="fab fa-react"></i> React
+            </a>
+            <a
+              href="https://tailwindcss.com/docs"
+              target="_blank"
+              class="skill-badge"
+            >
+              <img
+                src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg"
+                alt="Tailwind"
+                class="tech-logo"
+              />
+              Tailwind
+            </a>
+            <a
+              href="https://firebase.google.com/docs"
+              target="_blank"
+              class="skill-badge"
+            >
+              <img
+                src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg"
+                alt="Firebase"
+                class="tech-logo"
+              />
+              Firebase
+            </a>
+          </div>
+
+          <div class="skills animate-on-scroll">
+            <div class="skill">
+              <span>UI/UX Design</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="95%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Frontend Development</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="90%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Responsive Design</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects animate-on-scroll">
+      <h2 class="section-title">Featured Work</h2>
+      <div class="project-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Web</button>
+        <button class="filter-btn">Mobile</button>
+      </div>
+      <div class="project-grid">
+        <div class="project-card" data-tags="web">
+          <div class="project-img">
+            <img src="./img/E-co.jpg" alt="Project 1" />
+            <div class="project-overlay">
+              <h3>E-Commerce Platform</h3>
+              <p>React, Node.js, MongoDB</p>
+              <a href="#" class="project-link">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-tags="mobile">
+          <div class="project-img">
+            <img src="./img/app.jpg" alt="Project 2" />
+            <div class="project-overlay">
+              <h3>Fitness App</h3>
+              <p>React Native, Firebase</p>
+              <a href="#" class="project-link">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-tags="web">
+          <div class="project-img">
+            <img src="./img/Portfolio.jpg" alt="Project 3" />
+            <div class="project-overlay">
+              <h3>Portfolio Website</h3>
+              <p>HTML, CSS, JavaScript</p>
+              <a href="#" class="project-link">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact animate-on-scroll">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-container">
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" required />
+            <label for="name">Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" required />
+            <label for="email">Email</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="btn-primary">
+            <span class="btn-text">Send Message</span>
+            <div class="btn-loader"></div>
+          </button>
+        </form>
+
+        <div class="contact-info">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902269991206!2d90.39572421498132!3d23.75089398458925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85a3c6d7a1f%3A0x6b4f7a7d4e5f9f8c!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1678901234567!5m2!1sen!2sbd"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">RAHA</div>
+          <p>Creating elegant digital experiences with attention to detail.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#about" class="footer-link">About</a></li>
+            <li><a href="#projects" class="footer-link">Projects</a></li>
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Connect With Me</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon-footer"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" class="social-icon-footer"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="social-icon-footer"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-icon-footer"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="current-year"></span> Rashedul Islam. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
