@@ -202,7 +202,8 @@ body {
     }
 
     .map-container {
-      background: rgba(127, 0, 255, 0.1); /* Lighter background for map */
+      background: rgba(127, 0, 255, 0.1);
+      height: 100%; /* Lighter background for map */
     }
 
     .nav-links.active {
@@ -936,11 +937,16 @@ body {
 }
 
 .map-container {
-  height: 18.75rem;
+  /* height: 18.75rem; */
+  height: 100%;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 0.9375rem;
   overflow: hidden;
   position: relative;
+}
+
+#message {
+  resize: none;
 }
 
 /* ===== Footer Styles ===== */
@@ -969,16 +975,12 @@ body {
   min-width: 15rem; /* Ensure sections don't get too narrow */
 }
 
-.footer-brand .logo {
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-decoration: none;
-  margin-bottom: var(--space-sm);
-  display: inline-block; /* To make text-align work correctly */
+.logo figure img {
+  height: 30px;
+  background-color: var(--pure-white);
+  padding: 3px;
+  border-radius: 5px;
+  border: 2px solid var(--electric-violet);
 }
 
 .footer-brand p {
