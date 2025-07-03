@@ -59,6 +59,7 @@
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 body {
@@ -67,154 +68,226 @@ body {
   color: var(--light-text);
   line-height: 1.6;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  /* Light Mode Styles */
-  &.light-mode {
-    --deep-navy: #e0e7ff; /* Lighter shade */
-    --dark-bg: #f0f4f8; /* Light background */
-    --light-text: #333; /* Darker text */
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --btn-gradient: linear-gradient(
-      45deg,
-      var(--neon-pink),
-      var(--electric-violet)
-    ); /* Keep vibrant for contrast */
-    --hero-gradient: linear-gradient(
-      135deg,
-      var(--electric-violet) 0%,
-      var(--neon-pink) 50%,
-      var(--sunset-orange) 100%
-    );
-    --text-gradient: linear-gradient(
-      90deg,
-      var(--electric-violet),
-      var(--neon-pink)
-    );
-    background-color: var(--dark-bg); /* Apply light background */
+  position: relative; /* For custom cursor positioning */
+}
 
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.85); /* Lighter translucent nav */
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    }
+/* Light Mode Styles */
+body.light-mode {
+  --deep-navy: #e0e7ff; /* Lighter shade */
+  --dark-bg: #f0f4f8; /* Light background */
+  --light-text: #333; /* Darker text */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --btn-gradient: linear-gradient(
+    45deg,
+    var(--neon-pink),
+    var(--electric-violet)
+  ); /* Keep vibrant for contrast */
+  --hero-gradient: linear-gradient(
+    135deg,
+    var(--electric-violet) 0%,
+    var(--neon-pink) 50%,
+    var(--sunset-orange) 100%
+  );
+  --text-gradient: linear-gradient(
+    90deg,
+    var(--electric-violet),
+    var(--neon-pink)
+  );
+  background-color: var(--dark-bg); /* Apply light background */
 
-    .logo,
-    .nav-link {
-      color: var(--dark-bg); /* Ensure logo and links are visible */
-    }
-
-    .nav-link:hover {
-      color: var(--electric-violet); /* Hover retains vibrancy */
-    }
-
-    .theme-toggle {
-      color: var(--dark-bg); /* Icon color matches text */
-    }
-
-    .theme-toggle:hover {
-      color: var(--electric-violet);
-    }
-
-    .hero-content .glow-text,
-    .hero-content .text-gradient,
-    .section-title {
-      -webkit-text-fill-color: initial; /* Reset for better contrast in light mode */
-      color: var(--electric-violet); /* Use a solid color from palette */
-    }
-
-    .hero-desc, /* Added for light mode text color */
-    body.light-mode p /* Added for light mode paragraph text color */ {
-      color: var(--light-text); /* Ensure general text is dark */
-    }
-
-    .about-content {
-      background: rgba(
-        255,
-        255,
-        255,
-        0.7
-      ); /* Lighter background for about content */
-      border: 1px solid rgba(127, 0, 255, 0.1);
-      box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
-    }
-
-    .skill-badge {
-      background: rgba(127, 0, 255, 0.1); /* Lighter skill badge background */
-      color: var(--dark-bg);
-      border-color: transparent;
-    }
-
-    .skill-badge:hover {
-      background: var(--btn-gradient); /* Keep vibrant hover */
-      color: var(--pure-white);
-      border-color: var(--pure-white);
-    }
-
-    .filter-btn {
-      color: var(--dark-bg);
-      border-color: var(--electric-violet);
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--electric-violet);
-      color: var(--pure-white);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      border-bottom-color: var(--electric-violet);
-      color: var(--dark-bg);
-    }
-
-    .form-group label {
-      color: var(--dark-bg);
-    }
-
-    .form-group input:focus + label,
-    .form-group input:valid + label,
-    .form-group textarea:focus + label,
-    .form-group textarea:valid + label {
-      color: var(--electric-violet);
-    }
-
-    .btn-primary {
-      color: var(--pure-white); /* Ensure text is visible on gradient */
-    }
-
-    .btn-secondary {
-      color: var(--electric-violet);
-      border-color: var(--electric-violet);
-    }
-
-    .social-link {
-      background: rgba(
-        127,
-        0,
-        255,
-        0.1
-      ); /* Lighter background for social links */
-      color: var(--dark-bg);
-    }
-
-    .social-link:hover {
-      background: var(--btn-gradient);
-      color: var(--pure-white);
-    }
-
-    .map-container {
-      background: rgba(127, 0, 255, 0.1);
-      height: 100%; /* Lighter background for map */
-    }
-
-    .nav-links.active {
-      background: rgba(240, 244, 248, 0.95); /* Lighter mobile nav background */
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    .hamburger {
-      color: var(--dark-bg); /* Darker hamburger icon in light mode */
-    }
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.85); /* Lighter translucent nav */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   }
+
+  .logo,
+  .nav-link {
+    color: var(--dark-bg); /* Ensure logo and links are visible */
+  }
+
+  .nav-link:hover {
+    color: var(--electric-violet); /* Hover retains vibrancy */
+  }
+
+  .theme-toggle {
+    color: var(--dark-bg); /* Icon color matches text */
+  }
+
+  .theme-toggle:hover {
+    color: var(--electric-violet);
+  }
+
+  .hero-content .glow-text,
+  .hero-content .text-gradient,
+  .section-title {
+    -webkit-text-fill-color: initial; /* Reset for better contrast in light mode */
+    color: var(--electric-violet); /* Use a solid color from palette */
+  }
+
+  .hero-desc, /* Added for light mode text color */
+  body.light-mode p /* Added for light mode paragraph text color */ {
+    color: var(--light-text); /* Ensure general text is dark */
+  }
+
+  .about-content {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.7
+    ); /* Lighter background for about content */
+    border: 1px solid rgba(127, 0, 255, 0.1);
+    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+  }
+
+  .skill-badge {
+    background: rgba(127, 0, 255, 0.1); /* Lighter skill badge background */
+    color: var(--dark-bg);
+    border-color: transparent;
+  }
+
+  .skill-badge:hover {
+    background: var(--btn-gradient); /* Keep vibrant hover */
+    color: var(--pure-white);
+    border-color: var(--pure-white);
+  }
+
+  .filter-btn {
+    color: var(--dark-bg);
+    border-color: var(--electric-violet);
+  }
+
+  .filter-btn.active,
+  .filter-btn:hover {
+    background: var(--electric-violet);
+    color: var(--pure-white);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    border-bottom-color: var(--electric-violet);
+    color: var(--dark-bg);
+  }
+
+  .form-group label {
+    color: var(--dark-bg);
+  }
+
+  .form-group input:focus + label,
+  .form-group input:valid + label,
+  .form-group textarea:focus + label,
+  .form-group textarea:valid + label {
+    color: var(--electric-violet);
+  }
+
+  .btn-primary {
+    color: var(--pure-white); /* Ensure text is visible on gradient */
+  }
+
+  .btn-secondary {
+    color: var(--electric-violet);
+    border-color: var(--electric-violet);
+  }
+
+  .social-link {
+    background: rgba(
+      127,
+      0,
+      255,
+      0.1
+    ); /* Lighter background for social links */
+    color: var(--dark-bg);
+  }
+
+  .social-link:hover {
+    background: var(--btn-gradient);
+    color: var(--pure-white);
+  }
+
+  .map-container {
+    background: rgba(127, 0, 255, 0.1);
+    height: 100%; /* Lighter background for map */
+  }
+
+  .nav-links.active {
+    background: rgba(240, 244, 248, 0.95); /* Lighter mobile nav background */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .hamburger {
+    color: var(--dark-bg); /* Darker hamburger icon in light mode */
+  }
+
+  .scroll-to-top-btn {
+    background: var(--electric-violet);
+    color: var(--pure-white);
+    box-shadow: 0 4px 15px rgba(127, 0, 255, 0.4);
+  }
+  .scroll-to-top-btn:hover {
+    background: var(--neon-pink);
+    box-shadow: 0 4px 20px rgba(255, 0, 160, 0.6);
+  }
+
+  .blog-card {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(127, 0, 255, 0.1);
+  }
+  .blog-card h3 {
+    color: var(--electric-violet);
+  }
+  .blog-card p {
+    color: var(--dark-bg);
+  }
+  .blog-card .read-more {
+    color: var(--cyber-teal);
+  }
+  .blog-card .read-more:hover {
+    color: var(--electric-violet);
+  }
+}
+
+/* ===== Custom Cursor ===== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cyber-teal);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  z-index: 9999;
+  mix-blend-mode: difference; /* Blends nicely with background */
+}
+
+body:hover .custom-cursor {
+  opacity: 1;
+}
+
+/* Remove default cursor */
+body {
+  cursor: none;
+}
+a,
+button,
+input,
+textarea,
+.logo-particle,
+.project-card {
+  cursor: none; /* Hide custom cursor over interactive elements */
+}
+
+/* Show default cursor on interactive elements for better UX */
+a:hover,
+button:hover,
+input:hover,
+textarea:hover,
+.logo-particle:hover,
+.project-card:hover {
+  cursor: pointer;
 }
 
 /* ===== Navigation ===== */
@@ -356,6 +429,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  min-height: 1.5em; /* Ensure space for typewriter text */
 }
 
 .hero-desc {
@@ -706,6 +780,7 @@ body {
   justify-content: center;
   gap: var(--space-sm);
   margin-bottom: var(--space-xl);
+  flex-wrap: wrap; /* Allow filters to wrap on smaller screens */
 }
 
 .filter-btn {
@@ -739,6 +814,9 @@ body {
   transition: var(--transition-medium);
   position: relative;
   box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+  background: rgba(10, 14, 46, 0.7); /* Added background for consistency */
+  backdrop-filter: blur(5px); /* Subtle blur for card background */
+  border: 1px solid rgba(127, 0, 255, 0.1);
 }
 
 .project-img {
@@ -817,10 +895,85 @@ body {
   transform: translateY(0);
 }
 
+/* ===== Blog Section (New) ===== */
+.blog {
+  padding: var(--space-xl) 5%;
+  background: var(--deep-navy);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  gap: var(--space-md);
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.blog-card {
+  background: rgba(10, 14, 46, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 0.9375rem;
+  overflow: hidden;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+  transition: var(--transition-medium);
+  border: 1px solid rgba(0, 245, 212, 0.1);
+}
+
+.blog-card:hover {
+  transform: translateY(-0.625rem);
+  box-shadow: 0 0.9375rem 2.5rem rgba(0, 245, 212, 0.3);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: var(--space-md);
+}
+
+.blog-content h3 {
+  font-size: var(--fs-large);
+  margin-bottom: var(--space-xs);
+  color: var(--cyber-teal);
+}
+
+.blog-meta {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-sm);
+}
+
+.blog-content p {
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-md);
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  color: var(--electric-violet);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.read-more:hover {
+  color: var(--neon-pink);
+  transform: translateX(5px);
+}
+
+.read-more i {
+  margin-left: var(--space-xs);
+  transition: var(--transition-fast);
+}
+
 /* ===== Contact Section ===== */
 .contact {
   padding: var(--space-xl) 5%;
-  background: var(--deep-navy);
+  background: var(--dark-bg);
 }
 
 .contact-container {
@@ -832,6 +985,12 @@ body {
 
 .contact-form {
   flex: 1;
+  background: rgba(10, 14, 46, 0.7);
+  backdrop-filter: blur(10px);
+  padding: var(--space-lg);
+  border-radius: 1.25rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(127, 0, 255, 0.2);
 }
 
 .form-group {
@@ -937,7 +1096,6 @@ body {
 }
 
 .map-container {
-  /* height: 18.75rem; */
   height: 100%;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 0.9375rem;
@@ -1132,23 +1290,47 @@ body.light-mode .footer-bottom {
   color: var(--light-text); /* Darker text */
 }
 
-/* Responsive adjustments for Footer */
-@media (max-width: 64rem) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center; /* Center content on smaller screens */
-  }
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  background: var(--btn-gradient);
+  color: var(--pure-white);
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: var(--fs-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(127, 0, 255, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  z-index: 999;
+}
 
-  .footer-brand,
-  .footer-links,
-  .footer-social {
-    min-width: unset; /* Remove min-width for full flexibility */
-    width: 100%;
-  }
+.scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-  .social-icons {
-    justify-content: center; /* Center social icons on smaller screens */
-  }
+.scroll-to-top-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(127, 0, 255, 0.6);
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+.mt-xl {
+  margin-top: var(--space-xl);
 }
 
 /* ===== Responsive Design ===== */
@@ -1164,7 +1346,7 @@ body.light-mode .footer-bottom {
   }
 
   .glow-text {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-xxl);
   }
 
   .nav-links {
@@ -1206,8 +1388,13 @@ body.light-mode .footer-bottom {
     font-size: var(--fs-medium);
   }
 
-  .project-grid {
+  .project-grid,
+  .blog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: var(--fs-xl); /* Adjusted for better mobile scaling */
   }
 }
 
@@ -1226,6 +1413,14 @@ body.light-mode .footer-bottom {
 
   .section-title {
     font-size: var(--fs-large);
+  }
+
+  .scroll-to-top-btn {
+    width: 3rem;
+    height: 3rem;
+    font-size: var(--fs-medium);
+    bottom: var(--space-md);
+    right: var(--space-md);
   }
 }
 

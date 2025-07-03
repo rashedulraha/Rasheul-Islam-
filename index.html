@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rashedul Islam</title>
+    <title>Rashedul Islam - Portfolio</title>
     <link rel="shortcut icon" href="./img/r.svg" type="image/x-icon" />
     <link
       rel="stylesheet"
@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- Custom Cursor Element -->
+    <div class="custom-cursor"></div>
+
+    <!-- Navigation Bar -->
     <nav class="glass-nav">
       <div class="logo">RAHA</div>
       <ul class="nav-links">
@@ -23,19 +27,24 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
       </ul>
       <button class="theme-toggle">🌙</button>
       <div class="hamburger">☰</div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
       <canvas id="particle-bg"></canvas>
       <div class="hero-content">
         <h1 class="glow-text">Rashedul Islam</h1>
-        <h2 class="text-gradient">Web Designer & Developer</h2>
+        <!-- Typewriter effect will be applied here -->
+        <h2
+          class="text-gradient typewriter-text"
+          data-words='["Web Designer", "Frontend Developer", "UI/UX Enthusiast"]'
+        ></h2>
         <p class="hero-desc">
-          I’m a passionate Web Designer & Frontend Developer based in
-          Bangladesh.
+          Creating elegant digital experiences with attention to detail.
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn-primary">View Work</a>
@@ -45,6 +54,7 @@
       <div class="scroll-indicator"></div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="about animate-on-scroll">
       <div class="tech-logos" id="techLogos"></div>
       <div class="about-container">
@@ -142,17 +152,20 @@
       </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="projects animate-on-scroll">
       <h2 class="section-title">Featured Work</h2>
       <div class="project-filters">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Web</button>
-        <button class="filter-btn">Mobile</button>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="design">Design</button>
       </div>
       <div class="project-grid">
-        <div class="project-card" data-tags="web">
+        <!-- Project Card 1 -->
+        <div class="project-card" data-tags="web design">
           <div class="project-img">
-            <img src="./img/E-co.jpg" alt="Project 1" />
+            <img src="./img/E-co.jpg" alt="E-Commerce Platform" />
             <div class="project-overlay">
               <h3>E-Commerce Platform</h3>
               <p>React, Node.js, MongoDB</p>
@@ -160,9 +173,10 @@
             </div>
           </div>
         </div>
-        <div class="project-card" data-tags="mobile">
+        <!-- Project Card 2 -->
+        <div class="project-card" data-tags="mobile design">
           <div class="project-img">
-            <img src="./img/app.jpg" alt="Project 2" />
+            <img src="./img/app.jpg" alt="Fitness App" />
             <div class="project-overlay">
               <h3>Fitness App</h3>
               <p>React Native, Firebase</p>
@@ -170,9 +184,10 @@
             </div>
           </div>
         </div>
-        <div class="project-card" data-tags="web">
+        <!-- Project Card 3 -->
+        <div class="project-card" data-tags="web design">
           <div class="project-img">
-            <img src="./img/Portfolio.jpg" alt="Project 3" />
+            <img src="./img/Portfolio.jpg" alt="Portfolio Website" />
             <div class="project-overlay">
               <h3>Portfolio Website</h3>
               <p>HTML, CSS, JavaScript</p>
@@ -180,9 +195,115 @@
             </div>
           </div>
         </div>
+        <!-- New Project Card 4 -->
+        <div class="project-card" data-tags="web">
+          <div class="project-img">
+            <img
+              src="https://placehold.co/600x400/0a0e2e/00f5d4?text=Project+4"
+              alt="Landing Page Design"
+            />
+            <div class="project-overlay">
+              <h3>Landing Page Design</h3>
+              <p>HTML, CSS, JavaScript</p>
+              <a href="#" class="project-link">View Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- New Project Card 5 -->
+        <div class="project-card" data-tags="mobile">
+          <div class="project-img">
+            <img
+              src="https://placehold.co/600x400/0a0e2e/7f00ff?text=Project+5"
+              alt="Mobile Game UI"
+            />
+            <div class="project-overlay">
+              <h3>Mobile Game UI</h3>
+              <p>UI/UX Design, Figma</p>
+              <a href="#" class="project-link">View Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- New Project Card 6 -->
+        <div class="project-card" data-tags="design">
+          <div class="project-img">
+            <img
+              src="https://placehold.co/600x400/0a0e2e/ff00a0?text=Project+6"
+              alt="Brand Identity"
+            />
+            <div class="project-overlay">
+              <h3>Brand Identity</h3>
+              <p>Adobe Illustrator, Photoshop</p>
+              <a href="#" class="project-link">View Details</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Blog Section (New) -->
+    <section id="blog" class="blog animate-on-scroll">
+      <h2 class="section-title">Latest Articles</h2>
+      <div class="blog-grid">
+        <!-- Blog Post 1 -->
+        <div class="blog-card">
+          <img
+            src="https://placehold.co/400x250/0a0e2e/00f5d4?text=Blog+Post+1"
+            alt="Blog Post Image"
+          />
+          <div class="blog-content">
+            <h3>Understanding CSS Grid Layout</h3>
+            <p class="blog-meta">By Rashedul Islam | July 1, 2025</p>
+            <p>
+              A deep dive into the powerful CSS Grid module for modern web
+              layouts...
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <!-- Blog Post 2 -->
+        <div class="blog-card">
+          <img
+            src="https://placehold.co/400x250/0a0e2e/7f00ff?text=Blog+Post+2"
+            alt="Blog Post Image"
+          />
+          <div class="blog-content">
+            <h3>JavaScript ES6 Features You Must Know</h3>
+            <p class="blog-meta">By Rashedul Islam | June 20, 2025</p>
+            <p>
+              Exploring the essential ES6 features that will boost your
+              JavaScript skills...
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <!-- Blog Post 3 -->
+        <div class="blog-card">
+          <img
+            src="https://placehold.co/400x250/0a0e2e/ff00a0?text=Blog+Post+3"
+            alt="Blog Post Image"
+          />
+          <div class="blog-content">
+            <h3>Designing for Accessibility: Best Practices</h3>
+            <p class="blog-meta">By Rashedul Islam | June 10, 2025</p>
+            <p>
+              Learn how to create inclusive web experiences for all users...
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-xl">
+        <a href="#" class="btn-secondary">View All Articles</a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact" class="contact animate-on-scroll">
       <h2 class="section-title">Get In Touch</h2>
       <div class="contact-container">
@@ -221,12 +342,13 @@
       </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="main-footer">
       <div class="footer-content">
         <div class="footer-brand">
           <div class="logo">
             <figure>
-              <img src="./img/raha.svg" alt="" />
+              <img src="./img/raha.svg" alt="Raha Logo" />
             </figure>
           </div>
           <p>Creating elegant digital experiences with attention to detail.</p>
@@ -238,21 +360,25 @@
             <li><a href="#about" class="footer-link">About</a></li>
             <li><a href="#projects" class="footer-link">Projects</a></li>
             <li><a href="#contact" class="footer-link">Contact</a></li>
+            <li><a href="#blog" class="footer-link">Blog</a></li>
           </ul>
         </div>
         <div class="footer-social">
           <h3>Connect With Me</h3>
           <div class="social-icons">
-            <a href="#" class="social-icon-footer"
+            <a href="#" class="social-icon-footer" aria-label="GitHub Profile"
               ><i class="fab fa-github"></i
             ></a>
-            <a href="#" class="social-icon-footer"
+            <a href="#" class="social-icon-footer" aria-label="LinkedIn Profile"
               ><i class="fab fa-linkedin-in"></i
             ></a>
-            <a href="#" class="social-icon-footer"
+            <a href="#" class="social-icon-footer" aria-label="Twitter Profile"
               ><i class="fab fa-twitter"></i
             ></a>
-            <a href="#" class="social-icon-footer"
+            <a
+              href="#"
+              class="social-icon-footer"
+              aria-label="Instagram Profile"
               ><i class="fab fa-instagram"></i
             ></a>
           </div>
@@ -265,6 +391,15 @@
         </p>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTopBtn"
+      class="scroll-to-top-btn"
+      aria-label="Scroll to Top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="./script.js"></script>
   </body>

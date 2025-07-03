@@ -8,6 +8,9 @@ const skillBars = document.querySelectorAll(".skill-fill");
 const scrollIndicator = document.querySelector(".scroll-indicator");
 const hamburger = document.querySelector(".hamburger");
 const mobileNav = document.querySelector(".nav-links");
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+const customCursor = document.querySelector(".custom-cursor");
+const typewriterTextElement = document.querySelector(".typewriter-text");
 
 // ===== Theme Toggle Functionality =====
 themeToggle.addEventListener("click", toggleTheme);
@@ -77,7 +80,7 @@ function filterProjects() {
   filterButtons.forEach((btn) => btn.classList.remove("active"));
   this.classList.add("active");
 
-  const filterValue = this.textContent.toLowerCase();
+  const filterValue = this.dataset.filter.toLowerCase(); // Use data-filter attribute
 
   // Filter projects with animation
   projectCards.forEach((card) => {
@@ -209,6 +212,16 @@ function initTechLogos() {
       name: "Figma",
       url: "https://help.figma.com/hc/en-us",
     },
+    {
+      img: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
+      name: "Next.js",
+      url: "https://nextjs.org/docs",
+    },
+    {
+      img: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+      name: "TypeScript",
+      url: "https://www.typescriptlang.org/docs/",
+    },
   ];
 
   // Create floating logos
@@ -284,7 +297,7 @@ function initParticleBackground() {
   canvas.height = window.innerHeight;
 
   const ctx = canvas.getContext("2d");
-  const particles = [];
+  let particles = []; // Use let as particles array will be re-initialized
   const particleCount = window.innerWidth < 768 ? 30 : 80;
 
   // Particle constructor
@@ -300,9 +313,15 @@ function initParticleBackground() {
   }
 
   // Initialize particles
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
+  function createParticles() {
+    particles = []; // Clear existing particles
+    const currentParticleCount = window.innerWidth < 768 ? 30 : 80;
+    for (let i = 0; i < currentParticleCount; i++) {
+      particles.push(new Particle());
+    }
   }
+
+  createParticles(); // Initial particle creation
 
   // Animation loop
   function animateParticles() {
@@ -350,12 +369,7 @@ function initParticleBackground() {
   window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    // Re-initialize particles on resize to adapt to new dimensions
-    particles.length = 0; // Clear existing particles
-    const newParticleCount = window.innerWidth < 768 ? 30 : 80;
-    for (let i = 0; i < newParticleCount; i++) {
-      particles.push(new Particle());
-    }
+    createParticles(); // Re-initialize particles on resize to adapt to new dimensions
   });
 }
 
@@ -388,6 +402,99 @@ function setupIntersectionObserver() {
   });
 }
 
+// ===== Custom Cursor Logic (New Feature) =====
+function initCustomCursor() {
+  if (!customCursor) return;
+
+  document.addEventListener("mousemove", (e) => {
+    customCursor.style.left = `${e.clientX}px`;
+    customCursor.style.top = `${e.clientY}px`;
+  });
+
+  // Enlarge cursor on hover over interactive elements
+  document
+    .querySelectorAll(
+      "a, button, input, textarea, .logo-particle, .project-card, .blog-card"
+    )
+    .forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        customCursor.style.width = "40px";
+        customCursor.style.height = "40px";
+        customCursor.style.borderColor = "var(--neon-pink)";
+      });
+      el.addEventListener("mouseleave", () => {
+        customCursor.style.width = "20px";
+        customCursor.style.height = "20px";
+        customCursor.style.borderColor = "var(--cyber-teal)";
+      });
+    });
+}
+
+// ===== Typewriter Effect for Hero Subtitle (New Feature) =====
+function initTypewriter() {
+  if (!typewriterTextElement) return;
+
+  const words = JSON.parse(typewriterTextElement.dataset.words);
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 100; // milliseconds
+  const deletingSpeed = 50; // milliseconds
+  const delayBetweenWords = 1500; // milliseconds
+
+  function type() {
+    const currentWord = words[wordIndex];
+    if (isDeleting) {
+      typewriterTextElement.textContent = currentWord.substring(
+        0,
+        charIndex - 1
+      );
+      charIndex--;
+    } else {
+      typewriterTextElement.textContent = currentWord.substring(
+        0,
+        charIndex + 1
+      );
+      charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      // Word finished typing, start deleting after a delay
+      setTimeout(() => (isDeleting = true), delayBetweenWords);
+    } else if (isDeleting && charIndex === 0) {
+      // Word finished deleting, move to next word
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
+
+    const currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(type, currentSpeed);
+  }
+
+  type(); // Start the typewriter effect
+}
+
+// ===== Scroll to Top Button Logic (New Feature) =====
+function initScrollToTopBtn() {
+  if (!scrollToTopBtn) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      // Show button after scrolling 300px
+      scrollToTopBtn.classList.add("show");
+    } else {
+      scrollToTopBtn.classList.remove("show");
+    }
+  });
+
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
 // ===== Initialize Everything =====
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize components
@@ -396,23 +503,16 @@ document.addEventListener("DOMContentLoaded", () => {
   initParticleBackground();
   initTechLogos();
   initProfileHover();
+  initCustomCursor(); // Initialize custom cursor
+  initTypewriter(); // Initialize typewriter effect
+  initScrollToTopBtn(); // Initialize scroll to top button
 
   // Set initial project filter to 'All'
-  document.querySelector(".filter-btn.active")?.click();
+  document.querySelector(".filter-btn[data-filter='all']")?.click();
 
   // Set up scroll events
   window.addEventListener("scroll", updateScrollIndicator);
   updateScrollIndicator(); // Initial call to set indicator position
-
-  // Add data-tags to project cards if not present (Ensures filtering works even if omitted from HTML)
-  projectCards.forEach((card, index) => {
-    if (!card.hasAttribute("data-tags")) {
-      const tags = ["web", "design"];
-      if (index % 2 === 0) tags.push("mobile");
-      if (index % 3 === 0) tags.push("branding");
-      card.setAttribute("data-tags", tags.join(" "));
-    }
-  });
 
   // Ensure form labels are correctly positioned on page load for pre-filled fields
   document
@@ -429,21 +529,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-  // ===== Initialize Everything =====
-  document.addEventListener("DOMContentLoaded", () => {
-    // ... (existing code)
-
-    // Set current year in footer
-    const currentYearSpan = document.getElementById("current-year");
-    if (currentYearSpan) {
-      currentYearSpan.textContent = new Date().getFullYear();
-    }
-
-    // ... (rest of your existing code)
-  });
+  // Set current year in footer
+  const currentYearSpan = document.getElementById("current-year");
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
+  }
 });
 
 // ===== Window Resize Handler =====
-window.addEventListener("resize", () => {
-  // Particle canvas resize is handled within initParticleBackground's resize listener
-});
+// Particle canvas resize is handled within initParticleBackground's resize listener
+// Other responsive adjustments are handled by CSS media queries.
