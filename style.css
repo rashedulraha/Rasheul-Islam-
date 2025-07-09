@@ -317,6 +317,11 @@ textarea:hover,
   color: transparent;
   text-decoration: none;
   transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.logo img:hover {
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
 }
 
 .nav-links {
